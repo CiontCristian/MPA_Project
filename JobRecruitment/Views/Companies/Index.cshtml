@@ -1,0 +1,118 @@
+﻿@model JobModel.Models.ViewData.CompanyData
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Employees
+            </th>
+            <th>
+                Jobs
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Companies)
+        {
+            string selectedRow = "";
+            if (item.ID == (int?)ViewData["CompanyID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employees)
+                </td>
+                <td>
+                    @{
+                        foreach (var offer in item.CompanyOffers)
+                        {
+                            @offer.Job.Title @: @offer.Job.Positions <br />
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.Jobs != null)
+{
+    <h3>Jobs posted by selected company</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Technologies</th>
+            <th>Openings</th>
+        </tr>
+        @foreach (var item in Model.Jobs)
+        {
+            string selectedRow = "";
+            if (item.ID == (int?)ViewData["JobID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { jobID = item.ID })
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Technologies
+                </td>
+                <td>
+                    @item.Positions
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.Applications != null)
+{
+    <h3>
+        Applications for the selected job
+    </h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Application Date</th>
+        </tr>
+        @foreach (var item in Model.Applications)
+        {
+            <tr>
+                <td>
+                    @item.Client.Name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplyDate)
+                </td>
+            </tr>
+        }
+    </table>
+}

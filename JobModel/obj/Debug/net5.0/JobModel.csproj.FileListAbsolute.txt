@@ -1,0 +1,12 @@
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\bin\Debug\net5.0\JobModel.deps.json
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\bin\Debug\net5.0\JobModel.dll
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\bin\Debug\net5.0\ref\JobModel.dll
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\bin\Debug\net5.0\JobModel.pdb
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\JobModel.csproj.AssemblyReference.cache
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\JobModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\JobModel.AssemblyInfoInputs.cache
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\JobModel.AssemblyInfo.cs
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\JobModel.csproj.CoreCompileInputs.cache
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\JobModel.dll
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\ref\JobModel.dll
+E:\Masterat\An1\Sem 1\MPA\MPA_Project\JobModel\obj\Debug\net5.0\JobModel.pdb

@@ -1,0 +1,83 @@
+﻿@model JobModel.Models.ViewData.ClientApplication
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Client</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Client.ID" />
+            <div class="form-group">
+                <label asp-for="Client.Name" class="control-label"></label>
+                <input asp-for="Client.Name" class="form-control" />
+                <span asp-validation-for="Client.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Experience" class="control-label"></label>
+                <input asp-for="Client.Experience" class="form-control" />
+                <span asp-validation-for="Client.Experience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Birthday" class="control-label"></label>
+                <input asp-for="Client.Birthday" class="form-control" />
+                <span asp-validation-for="Client.Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <p>
+            <a>Available Jobs</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Technologies
+                    </th>
+                    <th>
+                        Positions
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Jobs)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Technologies)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Positions)
+                        </td>
+                        <td>
+                            <a asp-action="Apply" asp-route-clientID="@Model.Client.ID" asp-route-jobID="@item.ID">Apply</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

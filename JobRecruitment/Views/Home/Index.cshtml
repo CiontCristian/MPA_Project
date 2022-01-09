@@ -1,0 +1,28 @@
+﻿@model IEnumerable<JobModel.Models.ViewData.SubscribedJob>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Most subscribed jobs</h2>
+<table>
+    <tr>
+        <th>
+            Job Title
+        </th>
+        <th>
+            Nr. of applications
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @item.NrOfApplications
+            </td>
+        </tr>
+    }
+</table>
